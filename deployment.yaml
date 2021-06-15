@@ -56,7 +56,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: testeinfra.soft.robertotrevisan.com.br
+  - host: testeinfra.clustersoft.robertotrevisan.com.br
     http:
       paths:
       - backend:
