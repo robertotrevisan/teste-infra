@@ -1,0 +1,18 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: FROM node:14
+      shellScript: |-
+        mkdir -p /usr/src/app
+        echo "building..."
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: softdesign-testeinfra:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
